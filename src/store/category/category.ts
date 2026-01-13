@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { type ICategory } from "./category.types";
+import { type ICategory } from "../../interfaces";
 
 interface CreateCategoryRequest {
   name: string;

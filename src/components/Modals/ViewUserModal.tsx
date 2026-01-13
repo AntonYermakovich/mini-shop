@@ -1,4 +1,4 @@
-import { type IUser } from "../../store/users/user.types";
+import { type IUser } from "../../interfaces";
 import { formatDate } from "../../utils";
 
 interface IViewUser {

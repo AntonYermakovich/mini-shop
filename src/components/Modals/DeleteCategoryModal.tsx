@@ -1,5 +1,5 @@
 import { useDeleteCategoryMutation } from "../../store/category/category";
-import type { ICategory } from "../../store/category/category.types";
+import type { ICategory } from "../../interfaces";
 
 interface DeleteCategoryModalProps {
   category: ICategory;

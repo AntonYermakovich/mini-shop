@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { IProduct } from "../../store/products/products.types";
+import type { IProduct } from "../../interfaces";
 import { useUpdateProductMutation } from "../../store/products/products";
 import { useGetAllCategoriesQuery } from "../../store/category/category";
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { ICategory } from "../../store/category/category.types";
+import type { ICategory } from "../../interfaces";
 import { useUpdateCategoryMutation } from "../../store/category/category";
 
 interface EditCategoryModalProps {

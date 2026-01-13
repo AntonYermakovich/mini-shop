@@ -1,4 +1,4 @@
-import type { ICategory } from "../../store/category/category.types";
+import type { ICategory } from "../../interfaces";
 
 interface ViewCategoryProps {
   category: ICategory;
