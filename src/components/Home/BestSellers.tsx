@@ -1,3 +1,5 @@
+import { formatPrice } from "../../utils";
+
 const BestSellers = () => {
   return (
     <section className="bg-gray-100">
@@ -11,8 +13,8 @@ const BestSellers = () => {
               alt="Смартфон X"
             />
             <h3 className="font-semibold">Смартфон X</h3>
-            <p className="text-indigo-600 font-bold my-2">29 990 ₽</p>
-            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
+            <p className="text-indigo-600 font-bold my-2">{formatPrice(1700)}</p>
+            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
               В корзину
             </button>
           </div>
@@ -23,8 +25,8 @@ const BestSellers = () => {
               alt="Наушники Pro"
             />
             <h3 className="font-semibold">Наушники Pro</h3>
-            <p className="text-indigo-600 font-bold my-2">9 990 ₽</p>
-            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
+            <p className="text-indigo-600 font-bold my-2">{formatPrice(700)}</p>
+            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
               В корзину
             </button>
           </div>
@@ -35,8 +37,8 @@ const BestSellers = () => {
               alt="Смарт-часы"
             />
             <h3 className="font-semibold">Смарт-часы</h3>
-            <p className="text-indigo-600 font-bold my-2">14 490 ₽</p>
-            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
+            <p className="text-indigo-600 font-bold my-2">{formatPrice(900)}</p>
+            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
               В корзину
             </button>
           </div>
@@ -47,8 +49,8 @@ const BestSellers = () => {
               alt="Игровая мышь"
             />
             <h3 className="font-semibold">Игровая мышь</h3>
-            <p className="text-indigo-600 font-bold my-2">3 490 ₽</p>
-            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
+            <p className="text-indigo-600 font-bold my-2">{formatPrice(120)}</p>
+            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
               В корзину
             </button>
           </div>
