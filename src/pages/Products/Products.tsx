@@ -2,11 +2,34 @@ import { Link, useParams } from "react-router-dom";
 import { useGetOneProductQuery } from "../../store/products/products";
 import { formatPrice } from "../../utils";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "../../store/hooks";
+import type { IProduct } from "../../interfaces";
+import { useAppDispatch } from "../../store/hooks";
+import { addToCart } from "../../store/cart/cart.slice";
+import { toast } from "react-toastify";
 
 const Products = () => {
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector((state) => state.cart.items);
   const { productId } = useParams();
   const { data: product } = useGetOneProductQuery(Number(productId) ?? "");
   const [imgSelected, setImgSelected] = useState<string>("");
+
+  const isProductInCart = cart.some((i) => i.productId === Number(productId));
+
+  const handleAddToCart = (product: IProduct) => {
+    isProductInCart
+      ? toast.success("Продукт уже в корзине")
+      : dispatch(
+          addToCart({
+            productId: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.images[0],
+            quantity: 1,
+          })
+        );
+  };
 
   useEffect(() => {
     setImgSelected(product ? product.images[0] : "");
@@ -18,7 +41,6 @@ const Products = () => {
 
   return (
     <>
-      {/* <!-- Breadcrumbs --> */}
       <nav className="max-w-7xl mx-auto px-4 py-4 text-sm text-gray-500">
         <Link to="/" className="hover:text-indigo-600">
           Главная
@@ -66,21 +88,28 @@ const Products = () => {
           </div>
 
           {/* <!-- Options --> */}
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <p className="font-semibold mb-2">Цвет</p>
             <div className="flex gap-2">
               <button className="w-8 h-8 rounded-full bg-black border"></button>
               <button className="w-8 h-8 rounded-full bg-gray-400 border"></button>
               <button className="w-8 h-8 rounded-full bg-blue-600 border"></button>
             </div>
-          </div>
+          </div> */}
 
           {/* <!-- Actions --> */}
           <div className="flex gap-4 mb-8">
-            <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700">
-              Добавить в корзину
+            <button
+              onClick={() => handleAddToCart(product!)}
+              className={` text-white px-6 py-3 rounded-lg cursor-pointer ${
+                isProductInCart
+                  ? "bg-green-600 hover:bg-green-700"
+                  : "bg-indigo-600 hover:bg-indigo-700"
+              }`}
+            >
+              {isProductInCart ? "В корзине" : "Добавить в корзину"}
             </button>
-            <button className="border px-6 py-3 rounded-lg hover:bg-gray-100">
+            <button className="border px-6 py-3 rounded-lg hover:bg-gray-100 cursor-pointer">
               ❤️ В избранное
             </button>
           </div>
@@ -103,7 +132,7 @@ const Products = () => {
       </section>
 
       {/* <!-- Characteristics --> */}
-      <section className="bg-gray-100 py-12">
+      {/* <section className="bg-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6">Характеристики</h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
@@ -125,7 +154,7 @@ const Products = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

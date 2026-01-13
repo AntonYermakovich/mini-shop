@@ -36,7 +36,7 @@ const Cart = () => {
               return (
                 <div
                   key={cartItem.productId}
-                  className="bg-white p-6 rounded-xl shadow flex items-center justify-between"
+                  className="bg-white p-6 rounded-xl shadow flex flex-col gap-5 md:flex-row md:items-center md:justify-between"
                 >
                   <div className="flex items-center gap-4">
                     <img
@@ -51,6 +51,7 @@ const Cart = () => {
                       </p>
                     </div>
                   </div>
+
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2">
                       <button

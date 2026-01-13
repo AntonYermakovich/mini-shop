@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-400">
       <div className="max-w-7xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-4 text-sm">
         <div>
-          <div className="text-white font-bold text-lg mb-3">Market</div>
+          <div className="text-white font-bold text-lg mb-3">Mini shop</div>
           <p>Маркетплейс с миллионами товаров и быстрой доставкой</p>
         </div>
         <div>
