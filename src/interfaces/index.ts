@@ -2,6 +2,7 @@ export interface IProductsFilters {
   categoryId?: number;
   minPrice?: number;
   maxPrice?: number;
+  title?: string
 }
 
 export interface ICartProduct {

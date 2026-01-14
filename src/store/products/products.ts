@@ -30,6 +30,7 @@ export const productsApi = createApi({
         url: `/products`,
         params: {
           ...(filters?.categoryId && { categoryId: filters.categoryId }),
+          ...(filters?.title && { title: filters.title }),
           // ...(filters?.minPrice && { price_min: filters.minPrice }),
           // ...(filters?.maxPrice && { price_max: filters.maxPrice }),
         },
